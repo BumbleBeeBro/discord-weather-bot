@@ -43,6 +43,19 @@
 
 	$discord_webhook = $weather_config->discord_webhook;
 
+	//check if days are set
+	if (!isset($weather_config->mentions)) {
+		echo 'Please set the mentions so not everyone gets pinged, taking everyone as default';
+
+		$mentions = ['everyone'];
+	} 
+	//else needed because it does not break the script if mentions is not set
+	else {
+		$mentions = $weather_config->mentions;
+	}
+
+	$mentions = $weather_config->mentions;
+
 	//initialize new guzzle client
 	$client = new Client([
 	    // Base URI is used with relative requests
@@ -75,7 +88,7 @@ while (true) {
 	}
 
 	//append all weather forecasts
-	$weather_output = format_weather($weather_days);
+	$weather_output = format_weather($weather_days, $mentions);
 
 	//send to Discord webhook in json format
 	$response = $response = $client->request('POST', $discord_webhook, ['json' => [

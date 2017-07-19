@@ -42,9 +42,12 @@
 		return ($degree - 273.15);
 	}
 
-		function format_weather($weather_days) {
+		function format_weather($weather_days, $mentions) {
 
-			$weather_output = '**Forecast '. Carbon::now() .':**
+			$weather_output = get_mentions($mentions);
+
+			$weather_output .= '
+			**Forecast '. Carbon::now() .':**
 			';
 
 			foreach ($weather_days as $day) {
@@ -103,6 +106,18 @@
 			}
 		}
 		return "";
+	}
+
+	//get an @ in front of every name to mention
+	function get_mentions ($mentions) {
+
+		$mention_output = '';
+
+		foreach ($mentions as $mention) {
+			$mention_output .= "@$mention ";
+		}
+
+		return $mention_output;
 	}
 
 
