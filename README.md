@@ -5,8 +5,9 @@ has to run on a server with php cli installed.
 
 use a screen session to keep the bot running.
 
-needs guzzlehttp/guzzle
+needs guzzlehttp/guzzle and Carbon/Carbon
 http://docs.guzzlephp.org/en/latest/overview.html
+http://carbon.nesbot.com/
 
 you need a discord webhook for the channel the bot should post
 https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks
