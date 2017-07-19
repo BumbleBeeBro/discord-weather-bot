@@ -1,0 +1,6 @@
+{
+	"city_id" : "2867539",
+	"api_key" : "openweatherapi key",
+	"days" : "3",
+	"discord_webhook" : "https://discordapp.com/api/webhooks/something"
+}
